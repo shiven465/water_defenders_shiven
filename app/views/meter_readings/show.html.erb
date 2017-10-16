@@ -1,19 +1,28 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = MeterReading -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => MeterReading %></h1>
+</div>
 
-<p>
-  <strong>Value:</strong>
-  <%= @meter_reading.value %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:value) %></dt>
+      <dd><pre class="prettyprint"><%= @meter_reading.value %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:read_at) %></dt>
+      <dd><pre class="prettyprint"><%= @meter_reading.read_at %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:unit) %></dt>
+      <dd><pre class="prettyprint"><%= @meter_reading.unit %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Read at:</strong>
-  <%= @meter_reading.read_at %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              meter_readings_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_meter_reading_path(@meter_reading), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              meter_reading_path(@meter_reading),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Unit:</strong>
-  <%= @meter_reading.unit %>
-</p>
-
-<%= link_to 'Edit', edit_meter_reading_path(@meter_reading) %> |
-<%= link_to 'Back', meter_readings_path %>

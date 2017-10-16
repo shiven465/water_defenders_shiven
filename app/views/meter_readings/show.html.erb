@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @meter_reading.value %>
+</p>
+
+<p>
+  <strong>Read at:</strong>
+  <%= @meter_reading.read_at %>
+</p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @meter_reading.unit %>
+</p>
+
+<%= link_to 'Edit', edit_meter_reading_path(@meter_reading) %> |
+<%= link_to 'Back', meter_readings_path %>

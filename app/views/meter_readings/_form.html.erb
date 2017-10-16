@@ -1,0 +1,13 @@
+<%= simple_form_for(@meter_reading) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :value %>
+    <%= f.input :read_at %>
+    <%= f.input :unit %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :meter_readings
+
   resources :trackings
 
   resources :blogs

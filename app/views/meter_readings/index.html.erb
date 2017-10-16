@@ -1,0 +1,29 @@
+<h1>Listing meter_readings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Value</th>
+      <th>Read at</th>
+      <th>Unit</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @meter_readings.each do |meter_reading| %>
+      <tr>
+        <td><%= meter_reading.value %></td>
+        <td><%= meter_reading.read_at %></td>
+        <td><%= meter_reading.unit %></td>
+        <td><%= link_to 'Show', meter_reading %></td>
+        <td><%= link_to 'Edit', edit_meter_reading_path(meter_reading) %></td>
+        <td><%= link_to 'Destroy', meter_reading, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Meter reading', new_meter_reading_path %>

@@ -1,19 +1,28 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Tracking -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Tracking %></h1>
+</div>
 
-<p>
-  <strong>Value:</strong>
-  <%= @tracking.value %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:value) %></dt>
+      <dd><pre class="prettyprint"><%= @tracking.value %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:time) %></dt>
+      <dd><pre class="prettyprint"><%= @tracking.time %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:unit) %></dt>
+      <dd><pre class="prettyprint"><%= @tracking.unit %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Time:</strong>
-  <%= @tracking.time %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              trackings_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_tracking_path(@tracking), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              tracking_path(@tracking),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Unit:</strong>
-  <%= @tracking.unit %>
-</p>
-
-<%= link_to 'Edit', edit_tracking_path(@tracking) %> |
-<%= link_to 'Back', trackings_path %>
